@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: ogaye
+  Date: 6/4/23
+  Time: 10:27 AM
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+<h:head>
+    <title>Hello BofA</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <h:outputLabel for="name" value="Enter your name" required="true" />
+        <h:inputText id="name" value="#{legacyHelloBean.name}" />
+        <h:message for="name" />
+        <br />
+        <h:commandButton value="Say hello" action="#{legacyHelloBean.createMessage}">
+            <f:ajax execute="@form" render="@form" />
+        </h:commandButton>
+        <br />
+        #{legacyHelloBean.message}
+
+        <br />
+
+        <h:commandButton value="Update Date"><f:ajax render="sayhello"></f:ajax></h:commandButton>
+        <h:outputText id="sayhello" value="  It's #{legacyHelloBean.date}" />
+
+
+    </h:form>
+</h:body>
+
+</html>
